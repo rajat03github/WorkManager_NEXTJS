@@ -1,6 +1,9 @@
 // ! This will work as API's
 
+import connectDB from "@/helper/db";
 import { NextResponse } from "next/server";
+
+connectDB();
 
 const GET = (request) => {
   const users = [
