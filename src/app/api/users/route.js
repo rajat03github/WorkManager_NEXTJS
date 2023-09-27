@@ -1,9 +1,39 @@
 // ! This will work as API's
 
 import connectDB from "@/helper/db";
+import User from "@/models/userModel";
 import { NextResponse } from "next/server";
 
 connectDB();
+
+//!DATA POST - Create User
+const POST = async (request) => {
+  try {
+    //fetch user detail from request
+
+    const { name, email, password } = await request.json(); //Returns promises
+
+    // create user object with mongoDb
+
+    const Createduser = await User.create({
+      name,
+      email,
+      password,
+    });
+
+    const response = NextResponse.json(Createduser, {
+      status: 201,
+    });
+
+    return response;
+  } catch (error) {
+    console.log(error);
+    return NextResponse.json({
+      message: "failed to Create user",
+      status: false,
+    });
+  }
+};
 
 const GET = (request) => {
   const users = [
@@ -26,27 +56,7 @@ const GET = (request) => {
 
   return NextResponse.json(users);
 };
-//DATA POST
-const POST = async (request) => {
-  // console.log(request.body);
-  // console.log(request.method);
-  // console.log(request.cookies);
-  // console.log(request.headers);
-  // console.log(request.nextUrl);
-  const { searchParams } = request.nextUrl;
-  console.log(searchParams);
 
-  const jsonData = await request.json();
-
-  console.log(jsonData);
-
-  const { yo } = jsonData;
-  console.log(yo);
-
-  return NextResponse.json({
-    message: "Posting user data",
-  });
-};
 const DELETE = (request) => {
   console.log("Delete API");
   return NextResponse.json(
