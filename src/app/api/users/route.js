@@ -23,7 +23,27 @@ const GET = (request) => {
 
   return NextResponse.json(users);
 };
-const POST = () => {};
+//DATA POST
+const POST = async (request) => {
+  // console.log(request.body);
+  // console.log(request.method);
+  // console.log(request.cookies);
+  // console.log(request.headers);
+  // console.log(request.nextUrl);
+  const { searchParams } = request.nextUrl;
+  console.log(searchParams);
+
+  const jsonData = await request.json();
+
+  console.log(jsonData);
+
+  const { yo } = jsonData;
+  console.log(yo);
+
+  return NextResponse.json({
+    message: "Posting user data",
+  });
+};
 const DELETE = (request) => {
   console.log("Delete API");
   return NextResponse.json(
