@@ -45,11 +45,11 @@ const GET = async (req) => {
 
     return response;
   } catch (error) {
+    console.log(error);
     return NextResponse.json({
       message: "error ",
       status: false,
     });
-    console.log(error);
   }
 };
 
