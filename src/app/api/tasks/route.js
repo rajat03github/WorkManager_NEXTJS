@@ -1,22 +1,20 @@
 //! EXPORT FUNCTIONS
 
+import { errorMessage } from "@/helper/errorMessage";
 import Task from "@/models/taskModel";
 import { NextResponse } from "next/server";
 
 //* get all tasks
 const GET = async (request) => {
   try {
-    let tasks = [];
-    tasks = await Task.find();
+    const tasks = await Task.find();
 
     return NextResponse.json(tasks, {
       message: "DONE",
     });
   } catch (error) {
     console.log(error);
-    return NextResponse.json({
-      message: "error",
-    });
+    return errorMessage("Failed !!");
   }
 };
 
@@ -35,10 +33,9 @@ const POST = async (request) => {
       message: "DONE",
     });
   } catch (error) {
-    console.log(error);
     return NextResponse.json({
-      message: "Failed To Create Task",
-      success: false,
+      message: "failed to Create user",
+      status: false,
     });
   }
 };
