@@ -37,4 +37,16 @@ export const PUT = async (req, { params }) => {
 };
 
 //* delete  for that id
-export const DELETE = async () => {};
+export const DELETE = async (req, { params }) => {
+  try {
+    const { taskId } = params;
+
+    const task = await Task.findByIdAndDelete(taskId);
+
+    return NextResponse.json({
+      message: "Deleted",
+    });
+  } catch (error) {
+    return errorMessage("Some error Occured");
+  }
+};
