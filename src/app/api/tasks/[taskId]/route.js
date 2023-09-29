@@ -17,8 +17,24 @@ export const GET = async (req, { params }) => {
   }
 };
 
-//* put  for that id
-export const PUT = async () => {};
+//* update task for that id
+export const PUT = async (req, { params }) => {
+  try {
+    const { taskId } = params;
+
+    const { title, content, status } = await req.json();
+
+    const task = await Task.findByIdAndUpdate(taskId, {
+      title,
+      content,
+      status,
+    });
+
+    return NextResponse.json(task);
+  } catch (error) {
+    return errorMessage("Some error Occured");
+  }
+};
 
 //* delete  for that id
 export const DELETE = async () => {};
