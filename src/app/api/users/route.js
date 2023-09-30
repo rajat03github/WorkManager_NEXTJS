@@ -27,7 +27,6 @@ const POST = async (req, res) => {
 
     return response;
   } catch (error) {
-    console.log(error);
     return NextResponse.json({
       message: "failed to Create user",
       status: false,

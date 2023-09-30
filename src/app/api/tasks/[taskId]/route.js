@@ -4,7 +4,7 @@ import { errorMessage } from "@/helper/errorMessage";
 import Task from "@/models/taskModel";
 import { NextResponse } from "next/server";
 
-//* get all tasks for that id
+//* get task by ID
 export const GET = async (req, { params }) => {
   try {
     const { taskId } = params;
