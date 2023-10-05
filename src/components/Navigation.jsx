@@ -20,7 +20,7 @@ const Navigation = () => {
             </li>
             <li>
               <Link href={"/add-tasks"} className="hover:text-gray-600 ">
-                Add_Task
+                addTasks
               </Link>
             </li>
             <li>
