@@ -8,7 +8,7 @@ const takeTime = async () => {
 
 const page = async () => {
   await takeTime();
-  throw new Error("this is manual error");
+  // throw new Error("this is manual error");
   return <div>ABOUT here</div>;
 };
 

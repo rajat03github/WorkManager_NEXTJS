@@ -6,7 +6,7 @@ const Info = () => {
 
   return (
     <div>
-      <h1>This is info</h1>
+      <h1 className="bg-red-400">This is info</h1>
       <p>
         Lorem ipsum dolor, sit amet consectetur adipisicing elit. Minus
         voluptatum aspernatur ad voluptates amet consequuntur error blanditiis,
