@@ -6,8 +6,7 @@ import Image from "next/image";
 import axios from "axios";
 
 import { toast } from "react-toastify";
-
-export const server = "http://localhost:3000";
+import { server } from "@/helper/axioshelper";
 
 // const metadata = {
 //   title: "Add Tasks",

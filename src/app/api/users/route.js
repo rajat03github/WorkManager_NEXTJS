@@ -27,10 +27,15 @@ const POST = async (req, res) => {
 
     return response;
   } catch (error) {
-    return NextResponse.json({
-      message: "failed to Create user",
-      status: false,
-    });
+    return NextResponse.json(
+      {
+        message: "failed to Create user",
+        status: false,
+      },
+      {
+        status: 401,
+      }
+    );
   }
 };
 
