@@ -30,11 +30,11 @@ const Navigation = () => {
         </div>
         <div>
           <ul className="flex space-x-5">
-            <li>
+            {/* <li>
               <Link href={"#!"}>Login</Link>
-            </li>
+            </li> */}
             <li>
-              <Link href={"#!"}>SignUp</Link>
+              <Link href={"/signup"}>SignUp</Link>
             </li>
           </ul>
         </div>
